@@ -18,7 +18,6 @@ loaded_model = joblib.load('../models/iris_classifier_knn_model.joblib')
 sample = [[sepal_length,sepal_width,petal_length,petal_width]]
 pred = loaded_model.predict(sample)[0]
 
-# st.write(f'your flower is {iris.target_names[pred]}')
 
 if flower_btn:
     st.write(f'your flower is {iris.target_names[pred]}')
