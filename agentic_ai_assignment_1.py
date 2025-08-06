@@ -98,35 +98,6 @@ if send_button and user_input.strip():
     # Clear input and rerun to update the interface
     st.rerun()
 
-# Handle Enter key press
-if user_input and st.session_state.get("enter_pressed", False):
-    st.session_state.enter_pressed = False
-    # Trigger the same logic as send button
-    if user_input.strip():
-        # Add user message to session state
-        user_message = {"role": "user", "content": user_input}
-        st.session_state.messages.append(user_message)
-        st.session_state.conversation_memory.append(user_message)
-        
-        # Generate AI response
-        try:
-            response = groq_client.chat.completions.create(
-                model="llama3-70b-8192",
-                messages=st.session_state.conversation_memory,
-                max_tokens=2000,
-                temperature=0
-            )
-            
-            ai_response = response.choices[0].message.content
-            ai_message = {"role": "assistant", "content": ai_response}
-            st.session_state.messages.append(ai_message)
-            st.session_state.conversation_memory.append(ai_message)
-            
-        except Exception as e:
-            error_message = {"role": "assistant", "content": f"Error: {str(e)}"}
-            st.session_state.messages.append(error_message)
-        
-        st.rerun()
 
 # Sidebar with additional features
 with st.sidebar:
