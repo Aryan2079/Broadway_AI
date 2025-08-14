@@ -6,10 +6,6 @@ model = joblib.load('/home/aryan/Broadway_AI/models/knn_breast_cancer_model.jobl
 scaler = joblib.load('/home/aryan/Broadway_AI/models/knn_breast_cancer_scaler.joblib')
 encoder = joblib.load('/home/aryan/Broadway_AI/models/knn_breast_cancer_encoder.joblib')
 
-# model = joblib.load('../models/knn_breast_cancer_model.joblib')
-# scaler = joblib.load('../models/knn_breast_cancer_scaler.joblib')
-# encoder = joblib.load('../models/Knn_breast_cancer_encoder.joblib')
-
 st.title("BREAST CANCER PREDICTION APP")
 st.write("Please enter the patient's information:")
 
